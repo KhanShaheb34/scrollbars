@@ -1,47 +1,48 @@
-'use strict';
+"use strict";
 
-var webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
+const TerserPlugin = require("terser-webpack-plugin");
 
-var plugins = [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
-];
-
-if (process.env.NODE_ENV === 'production') {
-    plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                screw_ie8: true,
-                warnings: false
-            }
-        })
-    );
-}
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
-    externals: {
-        react: {
-            root: 'React',
-            commonjs2: 'react',
-            commonjs: 'react',
-            amd: 'react'
-        }
+  mode: isProduction ? "production" : "development",
+  entry: "./src/index.js",
+  externals: {
+    react: {
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react",
     },
-    module: {
-        loaders: [{
-            test: /\.js$/,
-            loaders: ['babel-loader'],
-            exclude: /node_modules/
-        }]
-    },
-    output: {
-        library: 'ReactCustomScrollbars',
-        libraryTarget: 'umd'
-    },
-    plugins: plugins,
-    resolve: {
-        extensions: ['', '.js']
-    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: ["babel-loader"],
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: isProduction ? "scrollbars.min.js" : "scrollbars.js",
+    library: "ReactCustomScrollbars",
+    libraryTarget: "umd",
+    globalObject: "this",
+  },
+  optimization: {
+    minimize: isProduction,
+    minimizer: [new TerserPlugin()],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    }),
+  ],
+  resolve: {
+    extensions: [".js"],
+  },
 };

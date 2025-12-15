@@ -11,6 +11,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
   });
   afterEach(() => {
     if (root) root.unmount();
+    root = null;
     document.body.removeChild(node);
   });
 
@@ -23,7 +24,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
           <div style={{ width: 200, height: 200 }} />
         </Scrollbars>
       );
-      setTimeout(() => callback(ref.current), 0);
+      setTimeout(() => callback(ref.current), 50);
     }
     describe("getScrollLeft", () => {
       it("should return scrollLeft", (done) => {
@@ -90,7 +91,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
           <div style={{ width: 200, height: 200 }} />
         </Scrollbars>
       );
-      setTimeout(() => callback(ref.current), 0);
+      setTimeout(() => callback(ref.current), 50);
     }
     describe("scrollLeft/scrollToLeft", () => {
       it("should scroll to given left value", (done) => {
