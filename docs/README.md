@@ -1,118 +1,95 @@
-replace-custom-scrollbars
-=========================
+# @shakirul/scrollbars
 
-[![npm](https://img.shields.io/badge/npm-replace--custom--scrollbars-brightgreen.svg?style=flat-square)]()
-[![npm version](https://img.shields.io/npm/v/replace-custom-scrollbars.svg?style=flat-square)](https://www.npmjs.com/package/replace-custom-scrollbars)
-[![npm downloads](https://img.shields.io/npm/dm/replace-custom-scrollbars.svg?style=flat-square)](https://www.npmjs.com/package/replace-custom-scrollbars)
+[![npm](https://img.shields.io/badge/npm-@shakirul/scrollbars-brightgreen.svg?style=flat-square)](https://www.npmjs.com/package/@shakirul/scrollbars)
+[![npm version](https://img.shields.io/npm/v/@shakirul/scrollbars.svg?style=flat-square)](https://www.npmjs.com/package/@shakirul/scrollbars)
+[![npm downloads](https://img.shields.io/npm/dm/@shakirul/scrollbars.svg?style=flat-square)](https://www.npmjs.com/package/@shakirul/scrollbars)
 
-The package 
+A custom scrollbars component for React, based on [react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars) by Malte Wessel.
 
-https://github.com/malte-wessel/react-custom-scrollbars
+This fork adds support for **React 17, 18, and 19**, and includes TypeScript type definitions directly in the package.
 
-is no longer maintained, therefore I created this cloned version to cover the needs of my ongoing projects. It adds support for React 17 and React 18. It also adds types for TypeScript directly in the package. 
+## Features
 
-* frictionless native browser scrolling
-* native scrollbars for mobile devices
-* [fully customizable](https://github.com/felipecarrillo100/replace-custom-scrollbars/blob/master/docs/customization.md)
-* [auto hide](https://github.com/felipecarrillo100/replace-custom-scrollbars/blob/master/docs/usage.md#auto-hide)
-* [auto height](https://github.com/felipecarrillo100/replace-custom-scrollbars/blob/master/docs/usage.md#auto-height)
-* [universal](https://github.com/felipecarrillo100/replace-custom-scrollbars/blob/master/docs/usage.md#universal-rendering) (runs on client & server)
-* `requestAnimationFrame` for 60fps
-* no extra stylesheets
-* well tested, 100% code coverage
-
-Sample: https://codesandbox.io/s/replace-custom-scrollbars-l5yuck?file=/src/App.tsx
-
-[Documentation](https://github.com/felipecarrillo100/replace-custom-scrollbars/tree/master/docs)
+- Frictionless native browser scrolling
+- Native scrollbars for mobile devices
+- [Fully customizable](./customization.md)
+- [Auto hide](./usage.md#auto-hide)
+- [Auto height](./usage.md#auto-height)
+- [Universal](./usage.md#universal-rendering) (runs on client & server)
+- `requestAnimationFrame` for 60fps
+- No extra stylesheets
+- Well tested, 100% code coverage
 
 ## Installation
+
 ```bash
-npm install replace-custom-scrollbars --save
+npm install @shakirul/scrollbars --save
 ```
 
-This assumes that you’re using [npm](http://npmjs.com/) package manager with a module bundler like [Webpack](http://webpack.github.io) or [Browserify](http://browserify.org/) to consume [CommonJS modules](http://webpack.github.io/docs/commonjs.html).
+Or with yarn:
 
-If you don’t yet use [npm](http://npmjs.com/) or a modern module bundler, and would rather prefer a single-file [UMD](https://github.com/umdjs/umd) build that makes `ReactCustomScrollbars` available as a global object, you can grab a pre-built version from [unpkg](https://unpkg.com/react-custom-scrollbars@3.0.1/dist/react-custom-scrollbars.js). We *don’t* recommend this approach for any serious application, as most of the libraries complementary to `react-custom-scrollbars` are only available on [npm](http://npmjs.com/).
+```bash
+yarn add @shakirul/scrollbars
+```
 
 ## Usage
 
-This is the minimal configuration. [Check out the Documentation for advanced usage](https://github.com/felipecarrillo100/replace-custom-scrollbars/tree/master/docs).
+This is the minimal configuration. [Check out the Documentation for advanced usage](./).
 
-```javascript
-import { Scrollbars } from 'replace-custom-scrollbars';
+```jsx
+import { Scrollbars } from "@shakirul/scrollbars";
 
-class App extends Component {
-  render() {
-    return (
-      <Scrollbars style={{ width: 500, height: 300 }}>
-        <p>Some great content...</p>
-      </Scrollbars>
-    );
-  }
+function App() {
+  return (
+    <Scrollbars style={{ width: 500, height: 300 }}>
+      <p>Some great content...</p>
+    </Scrollbars>
+  );
 }
 ```
 
-The `<Scrollbars>` component is completely customizable. Check out the following code:
+The `<Scrollbars>` component is completely customizable:
 
-```javascript
-import { Scrollbars } from 'replace-custom-scrollbars';
+```jsx
+import { Scrollbars } from "@shakirul/scrollbars";
 
-class CustomScrollbars extends Component {
-  render() {
-    return (
-      <Scrollbars
-        onScroll={this.handleScroll}
-        onScrollFrame={this.handleScrollFrame}
-        onScrollStart={this.handleScrollStart}
-        onScrollStop={this.handleScrollStop}
-        onUpdate={this.handleUpdate}
-        renderView={this.renderView}
-        renderTrackHorizontal={this.renderTrackHorizontal}
-        renderTrackVertical={this.renderTrackVertical}
-        renderThumbHorizontal={this.renderThumbHorizontal}
-        renderThumbVertical={this.renderThumbVertical}
-        autoHide
-        autoHideTimeout={1000}
-        autoHideDuration={200}
-        autoHeight
-        autoHeightMin={0}
-        autoHeightMax={200}
-        thumbMinSize={30}
-        universal={true}
-        {...this.props}>
-    );
-  }
+function CustomScrollbars({ children, ...props }) {
+  return (
+    <Scrollbars
+      onScroll={handleScroll}
+      onScrollFrame={handleScrollFrame}
+      onScrollStart={handleScrollStart}
+      onScrollStop={handleScrollStop}
+      onUpdate={handleUpdate}
+      renderView={renderView}
+      renderTrackHorizontal={renderTrackHorizontal}
+      renderTrackVertical={renderTrackVertical}
+      renderThumbHorizontal={renderThumbHorizontal}
+      renderThumbVertical={renderThumbVertical}
+      autoHide
+      autoHideTimeout={1000}
+      autoHideDuration={200}
+      autoHeight
+      autoHeightMin={0}
+      autoHeightMax={200}
+      thumbMinSize={30}
+      universal={true}
+      {...props}
+    >
+      {children}
+    </Scrollbars>
+  );
 }
 ```
 
-All properties are documented in the [API docs](https://github.com/felipecarrillo100/replace-custom-scrollbars/blob/master/docs/API.md)
+All properties are documented in the [API docs](./API.md).
 
-## Examples
+## Documentation
 
-Run the simple example:
-```bash
-# Make sure that you've installed the dependencies
-npm install
-# Move to example directory
-cd react-custom-scrollbars/examples/simple
-npm install
-npm start
-```
-
-## Tests
-```bash
-# Make sure that you've installed the dependencies
-npm install
-# Run tests
-npm test
-```
-
-### Code Coverage
-```bash
-# Run code coverage. Results can be found in `./coverage`
-npm run test:cov
-```
-
+- [API](./API.md)
+- [Customization](./customization.md)
+- [Usage](./usage.md)
+- [Upgrade Guide v2 to v3](./upgrade-guide-v2-v3.md)
 
 ## License
 

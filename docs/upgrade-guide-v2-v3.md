@@ -2,17 +2,17 @@
 
 ## Render functions
 
-```javascript
+```jsx
 // v2.x
 <Scrollbars
-  renderScrollbarHorizontal={props => <div {...props/>}
+  renderScrollbarHorizontal={props => <div {...props}/>}
   renderScrollbarVertical={props => <div {...props}/>}>
 {/* */}
 </Scrollbars>
 
 // v3.x
 <Scrollbars
-  renderTrackHorizontal={props => <div {...props/>}
+  renderTrackHorizontal={props => <div {...props}/>}
   renderTrackVertical={props => <div {...props}/>}>
 {/* */}
 </Scrollbars>
@@ -20,7 +20,7 @@
 
 ## onScroll handler
 
-```javascript
+```jsx
 // v2.x
 <Scrollbars
   onScroll={(event, values) => {
