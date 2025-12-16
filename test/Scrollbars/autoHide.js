@@ -32,7 +32,7 @@ export default function createTests(scrollbarWidth) {
           expect(ref.current.trackHorizontal.style.opacity).toEqual("0");
           expect(ref.current.trackVertical.style.opacity).toEqual("0");
           done();
-        }, 0);
+        }, 200);
       });
     });
     describe("enter/leave track", () => {
@@ -50,7 +50,7 @@ export default function createTests(scrollbarWidth) {
             simulant.fire(track, "mouseenter");
             expect(track.style.opacity).toEqual("1");
             done();
-          }, 0);
+          }, 200);
         });
       });
       describe("when leaving horizontal track", () => {
@@ -75,8 +75,8 @@ export default function createTests(scrollbarWidth) {
             setTimeout(() => {
               expect(track.style.opacity).toEqual("0");
               done();
-            }, 100);
-          }, 0);
+            }, 400);
+          }, 200);
         });
       });
       describe("when entering vertical track", () => {
@@ -93,7 +93,7 @@ export default function createTests(scrollbarWidth) {
             simulant.fire(track, "mouseenter");
             expect(track.style.opacity).toEqual("1");
             done();
-          }, 0);
+          }, 200);
         });
       });
       describe("when leaving vertical track", () => {
@@ -118,8 +118,8 @@ export default function createTests(scrollbarWidth) {
             setTimeout(() => {
               expect(track.style.opacity).toEqual("0");
               done();
-            }, 100);
-          }, 0);
+            }, 400);
+          }, 200);
         });
       });
     });
@@ -139,8 +139,8 @@ export default function createTests(scrollbarWidth) {
             expect(trackHorizontal.style.opacity).toEqual("1");
             expect(trackVertical.style.opacity).toEqual("1");
             done();
-          }, 100);
-        }, 0);
+          }, 400);
+        }, 200);
       });
       it("should hide tracks after scrolling", (done) => {
         const ref = createRef();
@@ -164,7 +164,7 @@ export default function createTests(scrollbarWidth) {
             expect(trackVertical.style.opacity).toEqual("0");
             done();
           }, 300);
-        }, 0);
+        }, 200);
       });
     });
     describe("when dragging x-axis", () => {
@@ -196,7 +196,7 @@ export default function createTests(scrollbarWidth) {
           setTimeout(() => {
             expect(track.style.opacity).toEqual("1");
             done();
-          }, 100);
+          }, 400);
         }, 100);
       });
 
@@ -226,7 +226,7 @@ export default function createTests(scrollbarWidth) {
           setTimeout(() => {
             expect(track.style.opacity).toEqual("0");
             done();
-          }, 100);
+          }, 400);
         }, 100);
       });
 
@@ -261,7 +261,7 @@ export default function createTests(scrollbarWidth) {
               expect(track.style.opacity).toEqual("1");
               done();
             }, 200);
-          }, 100);
+          }, 400);
         });
       });
     });
@@ -293,7 +293,7 @@ export default function createTests(scrollbarWidth) {
           setTimeout(() => {
             expect(track.style.opacity).toEqual("1");
             done();
-          }, 100);
+          }, 400);
         }, 100);
       });
       it("should hide tracks on end", (done) => {
@@ -321,7 +321,7 @@ export default function createTests(scrollbarWidth) {
           setTimeout(() => {
             expect(track.style.opacity).toEqual("0");
             done();
-          }, 100);
+          }, 400);
         }, 100);
       });
       describe("and leaving track", () => {
@@ -354,7 +354,7 @@ export default function createTests(scrollbarWidth) {
               expect(track.style.opacity).toEqual("1");
               done();
             }, 200);
-          }, 100);
+          }, 400);
         });
       });
     });

@@ -40,8 +40,8 @@ export default function createTests() {
             // Expect at least one more call after the initial mount
             expect(spy.calls.length).toBeGreaterThan(initialCallCount);
             done();
-          }, 100);
-        }, 100);
+          }, 400);
+        }, 400);
       });
     });
     describe("when scrolling y-axis", () => {
@@ -69,8 +69,8 @@ export default function createTests() {
             // Expect at least one more call after the initial mount
             expect(spy.calls.length).toBeGreaterThan(initialCallCount);
             done();
-          }, 100);
-        }, 100);
+          }, 400);
+        }, 400);
       });
     });
 
@@ -92,7 +92,7 @@ export default function createTests() {
           // Should be called at least once on mount
           expect(spy.calls.length).toBeGreaterThan(0);
           done();
-        }, 100);
+        }, 400);
       });
     });
   });

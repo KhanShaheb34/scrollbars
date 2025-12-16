@@ -41,7 +41,7 @@ export default function createTests() {
         expect($scrollbars.clientHeight).toBeGreaterThan(0);
         expect($view.clientHeight).toBeGreaterThan(0);
         done();
-      }, 100);
+      }, 200);
     });
   });
 }

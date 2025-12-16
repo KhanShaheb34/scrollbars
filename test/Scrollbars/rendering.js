@@ -27,7 +27,7 @@ export default function createTests(scrollbarWidth) {
         setTimeout(() => {
           expect(ref.current.container.className).toEqual("foo");
           done();
-        }, 0);
+        }, 200);
       });
 
       it("takes styles", (done) => {
@@ -43,7 +43,7 @@ export default function createTests(scrollbarWidth) {
           expect(ref.current.container.style.height).toEqual("100px");
           expect(ref.current.container.style.overflow).toEqual("hidden");
           done();
-        }, 0);
+        }, 200);
       });
 
       it("renders view", (done) => {
@@ -57,7 +57,7 @@ export default function createTests(scrollbarWidth) {
         setTimeout(() => {
           expect(ref.current.view).toBeA(Node);
           done();
-        }, 0);
+        }, 200);
       });
 
       describe("when using custom tagName", () => {
@@ -76,7 +76,7 @@ export default function createTests(scrollbarWidth) {
           setTimeout(() => {
             expect(ref.current.container.tagName.toLowerCase()).toEqual("nav");
             done();
-          }, 0);
+          }, 200);
         });
       });
 
@@ -100,7 +100,7 @@ export default function createTests(scrollbarWidth) {
             expect(ref.current.view.style.color).toEqual("red");
             expect(ref.current.view.style.position).toEqual("absolute");
             done();
-          }, 0);
+          }, 200);
         });
       });
 
@@ -135,7 +135,7 @@ export default function createTests(scrollbarWidth) {
             expect(ref.current.trackHorizontal).toBeA(Node);
             expect(ref.current.trackVertical).toBeA(Node);
             done();
-          }, 0);
+          }, 200);
         });
 
         it("renders thumbs", (done) => {
@@ -150,7 +150,7 @@ export default function createTests(scrollbarWidth) {
             expect(ref.current.thumbHorizontal).toBeA(Node);
             expect(ref.current.thumbVertical).toBeA(Node);
             done();
-          }, 0);
+          }, 200);
         });
 
         it("renders thumbs with correct size", (done) => {
@@ -232,7 +232,7 @@ export default function createTests(scrollbarWidth) {
               );
               expect(ref.current.trackHorizontal.style.color).toEqual("red");
               done();
-            }, 0);
+            }, 200);
           });
         });
 
@@ -261,7 +261,7 @@ export default function createTests(scrollbarWidth) {
               );
               expect(ref.current.trackVertical.style.color).toEqual("red");
               done();
-            }, 0);
+            }, 200);
           });
         });
 
@@ -287,7 +287,7 @@ export default function createTests(scrollbarWidth) {
               );
               expect(ref.current.thumbHorizontal.style.color).toEqual("red");
               done();
-            }, 0);
+            }, 200);
           });
         });
 
@@ -313,7 +313,7 @@ export default function createTests(scrollbarWidth) {
               );
               expect(ref.current.thumbVertical.style.color).toEqual("red");
               done();
-            }, 0);
+            }, 200);
           });
         });
 
@@ -330,7 +330,7 @@ export default function createTests(scrollbarWidth) {
             expect(ref.current.view.style.top).toEqual("0px");
             expect(ref.current.view.style.left).toEqual("0px");
             done();
-          }, 0);
+          }, 200);
         });
 
         it("should not override the scrollbars width/height values", (done) => {

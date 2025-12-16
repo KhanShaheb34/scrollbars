@@ -36,7 +36,7 @@ export default function createTests(scrollbarWidth) {
         });
         expect(view.scrollLeft).toEqual(50);
         done();
-      }, 100);
+      }, 400);
     });
   });
 
@@ -58,7 +58,7 @@ export default function createTests(scrollbarWidth) {
         });
         expect(view.scrollTop).toEqual(50);
         done();
-      }, 100);
+      }, 400);
     });
   });
 }

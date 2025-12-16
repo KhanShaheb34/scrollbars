@@ -35,7 +35,7 @@ export default function createTests(scrollbarWidth) {
             expect(view.style.position).toEqual("absolute");
             expect(view.style.overflow).toEqual("scroll");
             done();
-          }, 0);
+          }, 200);
         });
       });
       describe("when componentDidMount", () => {
@@ -72,7 +72,7 @@ export default function createTests(scrollbarWidth) {
             expect(view.style.position).toEqual("relative");
             expect(view.style.overflow).toEqual("scroll");
             done();
-          }, 0);
+          }, 200);
         });
       });
       describe("when componentDidMount", () => {

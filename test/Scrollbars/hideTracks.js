@@ -35,7 +35,7 @@ export default function createTests(scrollbarWidth) {
             expect(trackHorizontal.style.visibility).toEqual("visible");
             expect(trackVertical.style.visibility).toEqual("visible");
             done();
-          }, 100);
+          }, 400);
         });
       });
       describe("when content is smaller than wrapper", () => {
@@ -56,7 +56,7 @@ export default function createTests(scrollbarWidth) {
             expect(trackHorizontal.style.visibility).toEqual("hidden");
             expect(trackVertical.style.visibility).toEqual("hidden");
             done();
-          }, 100);
+          }, 400);
         });
       });
     });

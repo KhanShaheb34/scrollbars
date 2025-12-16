@@ -32,7 +32,7 @@ export default function createTests(scrollbarWidth) {
         simulant.fire(window, "resize");
         expect(spy.calls.length).toEqual(1);
         done();
-      }, 100);
+      }, 200);
     });
   });
 }

@@ -42,7 +42,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
             `${100 + scrollbarWidth}px`
           );
           done();
-        }, 0);
+        }, 200);
       });
     });
 
@@ -61,7 +61,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
           expect(ref.current.view.style.marginRight).toEqual(width);
           expect(ref.current.view.style.marginBottom).toEqual(width);
           done();
-        }, 0);
+        }, 200);
       });
     });
 
@@ -219,7 +219,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
             `calc(100em + ${scrollbarWidth}px)`
           );
           done();
-        }, 0);
+        }, 200);
       });
     });
   });

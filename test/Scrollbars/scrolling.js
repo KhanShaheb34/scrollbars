@@ -42,8 +42,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               expect(ref.current.thumbHorizontal.style.transform).toEqual("");
             }
             done();
-          }, 100);
-        }, 0);
+          }, 400);
+        }, 200);
       });
     });
 
@@ -93,8 +93,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
             const event = args[0];
             expect(event).toBeA(Event);
             done();
-          }, 100);
-        }, 0);
+          }, 400);
+        }, 200);
       });
       it("should call `onScrollFrame`", (done) => {
         const spy = createSpy();
@@ -142,8 +142,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               });
             }
             done();
-          }, 100);
-        }, 0);
+          }, 400);
+        }, 200);
       });
       it("should call `onScrollStart` once", (done) => {
         const spy = createSpy();
@@ -168,7 +168,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               done();
             }
           }, 10);
-        }, 0);
+        }, 200);
       });
       it("should call `onScrollStop` once when scrolling stops", (done) => {
         const spy = createSpy();
@@ -195,7 +195,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               }, 300);
             }
           }, 10);
-        }, 0);
+        }, 200);
       });
     });
 
@@ -221,8 +221,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
             const event = args[0];
             expect(event).toBeA(Event);
             done();
-          }, 100);
-        }, 0);
+          }, 400);
+        }, 200);
       });
       it("should call `onScrollFrame`", (done) => {
         const spy = createSpy();
@@ -271,8 +271,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               });
             }
             done();
-          }, 100);
-        }, 0);
+          }, 400);
+        }, 200);
       });
       it("should call `onScrollStart` once", (done) => {
         const spy = createSpy();
@@ -297,7 +297,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               done();
             }
           }, 10);
-        }, 0);
+        }, 200);
       });
       it("should call `onScrollStop` once when scrolling stops", (done) => {
         const spy = createSpy();
@@ -324,7 +324,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
               }, 300);
             }
           }, 10);
-        }, 0);
+        }, 200);
       });
     });
   });

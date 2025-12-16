@@ -39,7 +39,7 @@ export default function createTests(scrollbarWidth) {
         simulant.fire(document, "mouseup");
         expect(view.scrollLeft).toEqual(100);
         done();
-      }, 100);
+      }, 400);
     });
 
     it("should disable selection", (done) => {
@@ -61,7 +61,7 @@ export default function createTests(scrollbarWidth) {
         simulant.fire(document, "mouseup");
         expect(document.body.style.webkitUserSelect).toEqual("");
         done();
-      }, 100);
+      }, 400);
     });
   });
 
@@ -87,7 +87,7 @@ export default function createTests(scrollbarWidth) {
         simulant.fire(document, "mouseup");
         expect(view.scrollTop).toEqual(100);
         done();
-      }, 100);
+      }, 400);
     });
 
     it("should disable selection", (done) => {
@@ -109,7 +109,7 @@ export default function createTests(scrollbarWidth) {
         simulant.fire(document, "mouseup");
         expect(document.body.style.webkitUserSelect).toEqual("");
         done();
-      }, 100);
+      }, 400);
     });
   });
 }

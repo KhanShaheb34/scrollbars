@@ -285,7 +285,18 @@ const Scrollbars = forwardRef(function Scrollbars(props, ref) {
       const values = getValues();
       if (scrollbarWidth) {
         const { scrollLeft: sl, clientWidth, scrollWidth } = values;
-        const trackHorizontalWidth = getInnerWidth(trackHorizontalRef.current);
+        const trackHorizontal = trackHorizontalRef.current;
+        const trackVertical = trackVerticalRef.current;
+        const thumbHorizontal = thumbHorizontalRef.current;
+        const thumbVertical = thumbVerticalRef.current;
+        if (
+          !trackHorizontal ||
+          !trackVertical ||
+          !thumbHorizontal ||
+          !thumbVertical
+        )
+          return;
+        const trackHorizontalWidth = getInnerWidth(trackHorizontal);
         const thumbHorizontalWidth = getThumbHorizontalWidth();
         const thumbHorizontalX =
           (sl / (scrollWidth - clientWidth)) *
@@ -295,7 +306,7 @@ const Scrollbars = forwardRef(function Scrollbars(props, ref) {
           transform: `translateX(${thumbHorizontalX}px)`,
         };
         const { scrollTop: st, clientHeight, scrollHeight } = values;
-        const trackVerticalHeight = getInnerHeight(trackVerticalRef.current);
+        const trackVerticalHeight = getInnerHeight(trackVertical);
         const thumbVerticalHeight = getThumbVerticalHeight();
         const thumbVerticalY =
           (st / (scrollHeight - clientHeight)) *
@@ -311,11 +322,11 @@ const Scrollbars = forwardRef(function Scrollbars(props, ref) {
           const trackVerticalStyle = {
             visibility: scrollHeight > clientHeight ? "visible" : "hidden",
           };
-          css(trackHorizontalRef.current, trackHorizontalStyle);
-          css(trackVerticalRef.current, trackVerticalStyle);
+          css(trackHorizontal, trackHorizontalStyle);
+          css(trackVertical, trackVerticalStyle);
         }
-        css(thumbHorizontalRef.current, thumbHorizontalStyle);
-        css(thumbVerticalRef.current, thumbVerticalStyle);
+        css(thumbHorizontal, thumbHorizontalStyle);
+        css(thumbVertical, thumbVerticalStyle);
       }
       if (onUpdate) onUpdate(values);
       if (typeof callback !== "function") return;
