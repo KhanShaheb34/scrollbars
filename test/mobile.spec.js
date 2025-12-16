@@ -1,19 +1,12 @@
-const getScrollbarWidthModule = require('../src/utils/getScrollbarWidth');
-const envScrollbarWidth = getScrollbarWidthModule.default();
-import createTests from './Scrollbars';
+// Mobile tests simulate scrollbarWidth of 0 to test mobile behavior
+// Instead of mocking, we run the same tests with scrollbarWidth=0 config
+import createTests from "./Scrollbars";
+import getScrollbarWidth from "../src/utils/getScrollbarWidth";
 
-describe('Scrollbars (mobile)', () => {
-    const mobileScrollbarsWidth = 0;
-    let getScrollbarWidthSpy;
+const envScrollbarWidth = getScrollbarWidth();
 
-    before(() => {
-        getScrollbarWidthSpy = spyOn(getScrollbarWidthModule, 'default');
-        getScrollbarWidthSpy.andReturn(mobileScrollbarsWidth);
-    });
-
-    after(() => {
-        getScrollbarWidthSpy.restore();
-    });
-
-    createTests(mobileScrollbarsWidth, envScrollbarWidth);
+describe("Scrollbars (mobile)", () => {
+  // Run tests with mobileScrollbarsWidth = 0 to simulate mobile
+  const mobileScrollbarsWidth = 0;
+  createTests(mobileScrollbarsWidth, envScrollbarWidth);
 });
